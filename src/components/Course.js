@@ -9,7 +9,6 @@ function Course({ course }) {
     const CreateRatingStars = () => {
         let rating_stars = [];
         let full = parseInt(rating);
-        // console.log(full)
         let half = rating - full >= 0.4 ? 1 : 0;
         let empty = 5 - full - half;
 
