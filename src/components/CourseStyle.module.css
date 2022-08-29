@@ -90,6 +90,7 @@
   white-space: nowrap;
 }
 
+/* we don't use camel case in css files */
 .totalRates {
   /* position: relative; */
   bottom: 20px;
