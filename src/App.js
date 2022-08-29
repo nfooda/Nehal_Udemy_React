@@ -1,23 +1,18 @@
-import logo from './logo.svg';
 import './App.css';
+import Database from './components/Database'
+import CoursesExplore from './components/CoursesExplore';
+
+
+
+
+
 
 function App() {
+  console.log(Database())
+  const { courseList, title, description } = Database();
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <CoursesExplore courseList={courseList} title={title} description={description} />
     </div>
   );
 }
