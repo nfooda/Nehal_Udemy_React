@@ -1,22 +1,21 @@
 import React from 'react'
-import { Link, useNavigate, useParams, useLocation } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 
 function CoursePage({ courses, reviews, contents }) {
     const navigate = useNavigate();
     const { courseURL } = useParams();
-    console.log(courseURL);
-    const { pathname } = useLocation();
-    // console.log(courses);
-    console.log(`/course/${courseURL}/`);
+    // const { pathname } = useLocation();
 
-    const course = courses ? courses.find(course => course.url === `/course/${courseURL}/`) : [];
+    const course = courses.find(course => course.url === `/course/${courseURL}/`);
 
-    console.log(course);
-    const courseId = courses ? course.id : 0;
+    const courseId = parseInt(course.id);
 
-    // console.log(courseId);
-    // const courseReview = reviews.find(review => review.id === courseId);
-    // const courseContent = contents.find(content => content.id === courseId);
+    console.log(courseId);
+    const courseReview = reviews.find(review => parseInt(review.id) === courseId);
+    const courseContent = contents.find(content => parseInt(content.id) === courseId);
+
+    console.log(courseReview);
+    console.log(courseContent);
 
     return (
         <div>

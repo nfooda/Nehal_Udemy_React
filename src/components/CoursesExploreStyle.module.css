@@ -5,10 +5,10 @@
   text-align: left;
 }
 
-a,
-a:hover,
-a:visited,
-a:active {
+.coursesExplore a,
+.coursesExplore a:hover,
+.coursesExplore a:visited,
+.coursesExplore a:active {
   color: inherit;
   text-decoration: none;
 }
@@ -81,9 +81,11 @@ img {
 .coursesList {
   position: relative;
   width: 100%;
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  justify-content: center;
   margin-bottom: 10px;
+  grid-gap: 1.6rem;
 }
 
 .textHeadingSM {
@@ -116,6 +118,10 @@ img {
   text-align: center;
   vertical-align: middle;
   /* margin-right: 100%; */
+}
+
+.exploreBtn:hover {
+  background-color: rgba(0, 0, 0, 0.04);
 }
 
 .bttn {
