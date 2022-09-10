@@ -2,6 +2,15 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  text-align: left;
+}
+
+a,
+a:hover,
+a:visited,
+a:active {
+  color: inherit;
+  text-decoration: none;
 }
 
 html {
@@ -23,11 +32,12 @@ img {
 }
 
 .coursesExplore {
-  width: 90%;
-  margin: 5%;
+  max-width: none;
+  max-height: none;
+  overflow: visible;
+  visibility: visible;
   border: 1px solid #d1d7dc;
   padding: 3.2rem;
-  align-items: left;
 }
 
 .courseExploreHeader {
@@ -97,7 +107,6 @@ img {
   cursor: pointer;
   /* display: inline-flex; */
   padding: 0 1.2rem;
-  justify-content: center;
   user-select: none;
   -webkit-user-select: none;
   vertical-align: bottom;
@@ -106,7 +115,7 @@ img {
   margin-top: auto;
   text-align: center;
   vertical-align: middle;
-  margin-right: 100%;
+  /* margin-right: 100%; */
 }
 
 .bttn {

@@ -1,7 +1,15 @@
 import React from 'react'
 import CoursesExploreStyle from './CoursesExploreStyle.module.css'
+import Course from "./Course";
 
-function CoursesExplore({ courseList, title, description }) {
+
+function CoursesExplore({ courses, title, description }) {
+
+    const courseList = () => {
+        return courses.map((course) => <Course key={course.id} course={course} />);
+    };
+
+
     return (
         <div className={CoursesExploreStyle.coursesExplore}>
             <header className={CoursesExploreStyle.courseExploreHeader}>
@@ -10,7 +18,7 @@ function CoursesExplore({ courseList, title, description }) {
                 <button className={`${CoursesExploreStyle.textHeadingSM} ${CoursesExploreStyle.exploreBtn} ${CoursesExploreStyle.bttn}`}> Explore Python</button>
             </header>
             <div className={CoursesExploreStyle.coursesList}>
-                {courseList}
+                {courseList()}
             </div>
         </div>
     )

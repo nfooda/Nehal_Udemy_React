@@ -1,27 +1,30 @@
 import React, { useState, useEffect } from "react";
-import Course from "./Course";
 
 function Database() {
-  const [courses, setCourses] = useState(null);
-  const [title, setTitle] = useState(null);
-  const [description, setDescription] = useState(null);
+  const [course, setCourse] = useState(null);
+  const [review, setReview] = useState(null);
+  const [content, setContent] = useState(null);
 
   useEffect(() => {
-    fetch("http://localhost:3000/python")
+    fetch("http://localhost:3000/courses")
       .then((res) => res.json())
       .then((data) => {
-        setCourses(data.courses);
-        setTitle(data.header);
-        setDescription(data.description);
+
+        setCourse(data.summary[0]);
+        setReview(data.review);
+        setContent(data.data);
+
       });
   }, []);
 
-  let courseList = [];
-  courseList = courses
-    ? courses.map((course) => <Course key={course.id} course={course} />)
-    : [];
+  const header = course ? course.header : "";
+  const description = course ? course.description : "";
+  const courses = course ? course.items : [];
+  const reviews = review ? review : [];
+  const contents = content ? content : [];
 
-  return { courseList, title, description };
+
+  return { header, description, courses, reviews, contents };
 }
 
 export default Database;
