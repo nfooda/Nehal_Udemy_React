@@ -1,6 +1,7 @@
 import React from 'react'
 import styles from './appStyles.module.css'
 import CoursesExplore from './CoursesExplore';
+
 function CoursesHeader({ courses, title, description }) {
   return (
 
@@ -21,6 +22,7 @@ function CoursesHeader({ courses, title, description }) {
       <CoursesExplore courses={courses}
         title={title}
         description={description} />
+
     </div>
 
 

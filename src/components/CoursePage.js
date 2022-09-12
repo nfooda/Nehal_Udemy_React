@@ -1,5 +1,7 @@
 import React from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
+import CourseReviews from './CourseReviews';
+
 
 function CoursePage({ courses, reviews, contents }) {
     const navigate = useNavigate();
@@ -19,7 +21,7 @@ function CoursePage({ courses, reviews, contents }) {
 
     return (
         <div>
-            HERE
+            <CourseReviews reviews={courseReview} />
         </div>
     )
 }
