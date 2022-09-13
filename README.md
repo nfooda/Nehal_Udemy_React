@@ -10,6 +10,8 @@ In the project directory, you can run:
 
 In the terminal of the project directory run the following commands:
 
+`npm install`
+
 `npm install -g json-server`
 
 `json-server --watch src/db.json`
