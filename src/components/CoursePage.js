@@ -1,6 +1,9 @@
 import React from 'react'
+import styles from "./CoursePageStyle.module.css";
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import CourseReviews from './CourseReviews';
+import CourseHeader from './CourseHeader';
+
 
 
 function CoursePage({ courses, reviews, contents }) {
@@ -21,7 +24,18 @@ function CoursePage({ courses, reviews, contents }) {
 
     return (
         <div>
-            <CourseReviews reviews={courseReview} />
+            <div className={styles.main_content}>
+                <div className={styles.landing_page}>
+                    <CourseHeader course={course} />
+                    <div className={styles.landing_page_body}>
+                        <div className={styles.landing_page_content}>
+                            <div className={styles.component_margin}>
+                                <CourseReviews reviews={courseReview} />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }
