@@ -2,7 +2,7 @@ import React from 'react'
 import styles from './appStyles.module.css'
 import CoursesExplore from './CoursesExplore';
 
-function CoursesHeader({ courses, title, description }) {
+function CoursesHeader({ courses, title, description, isLoading, errorMessage, searchQuery }) {
   return (
 
     <div className={styles.container}>
@@ -21,7 +21,10 @@ function CoursesHeader({ courses, title, description }) {
       </div>
       <CoursesExplore courses={courses}
         title={title}
-        description={description} />
+        description={description}
+        isLoading={isLoading}
+        errorMessage={errorMessage}
+        searchQuery={searchQuery} />
 
     </div>
 

@@ -2,7 +2,7 @@ import React from 'react'
 import clock from './clock.jpg'
 import styles from './appStyles.module.css'
 import CoursesHeader from './CoursesHeader';
-function Header({ courses, title, description }) {
+function Header({ courses, title, description ,isLoading,errorMessage,searchQuery}) {
   return (
     <div className={styles.HeaderAll}>
       <div className={styles.Header}>
@@ -14,7 +14,10 @@ function Header({ courses, title, description }) {
       </div>
       <CoursesHeader courses={courses}
         title={title}
-        description={description} />
+        description={description} 
+        isLoading={isLoading}
+        errorMessage= {errorMessage}
+        searchQuery={searchQuery}/>
     </div>
   );
 };

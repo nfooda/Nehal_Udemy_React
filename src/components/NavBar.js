@@ -1,17 +1,28 @@
 import React, { useState } from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink,useNavigate } from 'react-router-dom'
 import { IoGlobeOutline, IoSearchSharp, IoCartOutline, IoMenuSharp } from 'react-icons/io5'
 import styles from './appStyles.module.css'
 
-export const NavBar = () => {
-    const [filter, setFilter] = useState('');
 
+export const NavBar = () => {
+   
+    const [searchQuery, setSearchQuery] = useState('');
+    const navigate = useNavigate();
     const SearchText = (e) => {
-        setFilter(e.target.value)
+        setSearchQuery(e.target.value)
     }
 
+ 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        navigate({
+       
+          search: `searchText=${searchQuery}`,
+        });
+      };
 
 
+    
     return (
         <nav className={styles.NavBar}>
 
@@ -23,14 +34,14 @@ export const NavBar = () => {
             </NavLink>
             <NavLink to='/category' className={`${styles.CourseCategories} ${styles.textSM}`}>Categories</NavLink>
             <div className={styles.searchBar}>
-                <form className={styles.searchBar}>
+                <form onSubmit={handleSubmit} className={styles.searchBar}>
                     <button type="submit" className={styles.searchBtn}>
                         <IoSearchSharp size={22} />
                     </button>
-                    <input name="search-text"
-                        id="Search--text"
+                    <input name="searchText"
+                        id="SearchText"
                         type="search"
-                        value={filter}
+                        value={searchQuery}
                         onChange={SearchText}
                         placeholder="Search for anything"
                         className={`${styles.searchbBarInput} ${styles.textSM}`} />
@@ -50,4 +61,7 @@ export const NavBar = () => {
             </div>
         </nav>
     )
+   
 }
+
+
