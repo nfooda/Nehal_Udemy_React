@@ -3,23 +3,31 @@ import { Link } from 'react-router-dom'
 
 import CourseStyle from "./CourseStyle.module.css";
 import Rating from "@mui/material/Rating";
-
+import styles from "./SideBar.module.css"
 function Course({ course }) {
-  // const link = course.url;
   const rating = Math.round(course.rating * 10) / 10;
+  //to Get what you will learn 
+  const courseobjectives = course.objectives_summary;
+  let res = []
+  for (let i = 0; i < courseobjectives.length; i++) {
+    res[i] = <li className={CourseStyle.LearnList}>  {courseobjectives[i]} </li>;
+  }
+  //To get whether there is subtitles or not 
+  function subtitles() {
+    if (course.has_closed_caption) return " . Subtitles"
+  }
+  //To get last update date 
+  let date = course.last_update_date
+  function Month() {
+    var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    var month = parseInt(date.substring(5, 7))
+    return (months[month - 1])
+  }
+  let Year = parseInt(date.substring(0, 5))
 
   const Instructors = () => {
 
-    //another way for concatenating array elements 
     return course.visible_instructors.map((instructor) => instructor.display_name).join(", ");
-
-    // let instructors = "";
-    // for (let j = 0; j < course.visible_instructors.length - 1; j++) {
-    //   instructors += course.visible_instructors[j].display_name;
-    //   instructors += ", ";
-    // }
-    // instructors += course.visible_instructors[course.visible_instructors.length - 1].display_name;
-    // return instructors;
   };
 
   function bestseller() {
@@ -30,7 +38,16 @@ function Course({ course }) {
   }
 
   return (
+
     <div className={CourseStyle.course}>
+      <div className={CourseStyle.popup}>
+        <h1>{course.title}</h1>
+        <div className={CourseStyle.Date}>Updated <b>{Month()} {Year} </b></div>
+        <div className={CourseStyle.LearnList}>{course.headline}</div>
+        <div className={CourseStyle.AddInfo}>{course.content_info} . {course.instructional_level}{subtitles()}</div>
+        <ul className={CourseStyle.FullList} >{res}</ul>
+        <button className={styles.CartButton} >Add to Cart</button>
+      </div>
       <Link to={`/course/${course.url.slice(8)}`}>
         <img
           src={course.image_480x270}
@@ -58,6 +75,7 @@ function Course({ course }) {
         </div>
         {bestseller()}
       </Link>
+
     </div>
   );
 }

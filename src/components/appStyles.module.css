@@ -166,6 +166,7 @@ padding: 0px 3px;
   background-color: white;
   box-shadow: 0 2px 4px rgb(0 0 0 / 8%), 0 4px 12px rgb(0 0 0 / 8%);
   z-index: 1010;
+  height: 80px;
 }
 
 .udemyLogo {
@@ -366,7 +367,7 @@ padding: 0px 3px;
 }
 
 .headtxt {
-  font-size: 1.25rem;
+  font-size: 2rem;
   margin-top: 2%;
 }
 .head-title {
@@ -392,7 +393,7 @@ padding: 0px 3px;
   display: grid;
   grid-auto-columns: max-content;
   grid-auto-flow: column;
-  grid-gap: 1.6rem;
+  grid-gap: 2rem;
   overflow-x: hidden;
   font-weight: bold;
   padding: 0;
@@ -400,20 +401,23 @@ padding: 0px 3px;
   color: #606060;
   line-height: 2;
   font-weight: bolder;
+  font-size: 1.5rem;
+  list-style: none;
 }
 
 .selected_category {
   color: black;
 }
 .CourseHeaderTitle {
-  font-weight: 600;
-  font-size: 2rem;
+  font-weight: 650;
+  font-size: 2.5rem;
+  color: #1c1d1f;
 }
 .courselisttxt {
   margin-top: 1%;
   font-weight: 400;
   line-height: 1.4;
-  font-size: 1.3rem;
+  font-size: 1.7rem;
 }
 
 .HeaderAll {
@@ -421,4 +425,41 @@ padding: 0px 3px;
   max-width: 134rem;
   margin-right: auto;
   margin-left: auto;
+}
+
+@media screen and (max-width: 800px) {
+  /******headercontent Responsive *******/
+  .Header {
+    flex-direction: column-reverse;
+    background-color: #ffffff;
+    height: auto;
+    justify-content: flex-end;
+    padding: 0;
+    margin-bottom: 4rem;
+  }
+  .headcard {
+    padding: 0;
+    width: 100%;
+    text-align: left;
+    padding-left: 0;
+    box-shadow: none;
+  }
+  .clock_image {
+    margin-top: 0;
+    width: 100%;
+    background-color: #fafafa;
+    position: center;
+  }
+  .clock_image img {
+    position: center;
+    margin-left: 20%;
+  }
+  .headtitle {
+    margin-left: 5%;
+    /* font-size: 1.5rem; */
+  }
+  .headtxt {
+    margin-left: 5%;
+    /* font-size: 0.7rem; */
+  }
 }

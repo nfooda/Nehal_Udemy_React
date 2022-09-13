@@ -3,13 +3,13 @@ import styles from "./CoursePageStyle.module.css";
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import CourseReviews from './CourseReviews';
 import CourseHeader from './CourseHeader';
-
-
+import SideBar from './SideBar';
+import WhatToLearn from './WhatToLearn';
+import AccordtionBar from './AccordtionBar';
 
 function CoursePage({ courses, reviews, contents }) {
     const navigate = useNavigate();
     const { courseURL } = useParams();
-    // const { pathname } = useLocation();
 
     const course = courses.find(course => course.url === `/course/${courseURL}/`);
 
@@ -26,9 +26,19 @@ function CoursePage({ courses, reviews, contents }) {
         <div>
             <div className={styles.main_content}>
                 <div className={styles.landing_page}>
+                    <SideBar courseContent={courseContent} course={course} />
+
                     <CourseHeader course={course} />
                     <div className={styles.landing_page_body}>
                         <div className={styles.landing_page_content}>
+
+                            <div className={styles.component_margin}>
+                                <WhatToLearn course={course} />
+                            </div>
+                            <div className={styles.component_margin}>
+                                <AccordtionBar coursecontent={courseContent} course={course} />
+                            </div>
+
                             <div className={styles.component_margin}>
                                 <CourseReviews reviews={courseReview} />
                             </div>

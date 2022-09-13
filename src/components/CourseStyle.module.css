@@ -11,7 +11,69 @@
   margin-bottom: 1.6rem;
   display: "";
 }
+.course .popup{
+  display: none;
+  background-color: #fff;
 
+
+
+}
+.course:hover .popup{
+  display: inline;
+  position: absolute;
+  width:30rem;
+  margin-left: 107%;
+  z-index: 1;
+  padding: 10% 10% 10% 10%;
+  border: 1px solid #dadadb;
+  margin-top: -8rem;
+  background-color: #fff;
+
+}
+.course:hover .popup:before {
+  content: "";
+  position: absolute;
+  right: 100%;
+  top: 40%;
+  width: 0px;
+  height: 0px;
+  border-top: 13px solid transparent;
+  border-right: 26px solid rgb(246, 245, 245) ;
+  border-bottom: 13px solid transparent;
+
+}
+.FullList{
+  color: #1c1d1f;
+  font-weight: 400;
+  list-style: none;
+  display: grid;
+  flex-wrap:wrap;
+  justify-content: space-between;
+  margin: 0 2.4rem ;
+  list-style: none;
+}
+.LearnList{
+  line-height: 1.4;
+  color: black;
+  font-size: 1.4rem;
+  font-weight: 450;
+  padding-top: 1rem ;
+
+}
+.FullList li::marker  {
+  content: '✓ ';
+}
+.AddInfo{
+  padding-top: 1rem;
+  font-size: 1.2rem;
+  color: #6e6d6d;
+}
+.Date{
+  color:#29724c;
+  font-weight: 400;
+  font-size: 1.3rem;
+  padding-top: 1rem;
+}
 .course h3 {
   margin-top: 0.4rem;
   margin-bottom: 0.4rem;

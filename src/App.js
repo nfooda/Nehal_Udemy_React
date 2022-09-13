@@ -8,7 +8,7 @@ import { NavBar } from './components/NavBar';
 import Header from './components/Header';
 import CoursesHeader from './components/CoursesHeader';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
-
+import Footer from './components/Footer';
 
 function App() {
   const { header, description, courses, reviews, contents } = Database();
@@ -32,6 +32,7 @@ function App() {
         />} />
 
       </Routes>
+      <Footer />
 
 
 
