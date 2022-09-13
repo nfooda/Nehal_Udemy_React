@@ -198,6 +198,7 @@
   text-decoration: underline;
   color: #5624d0;
   cursor: pointer;
+  margin-right: 1rem;
 }
 
 .time {
